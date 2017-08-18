@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReplaceInFiles"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Replace in Files" Height="350" Width="525">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Center" Margin="0,34,0,0" VerticalAlignment="Top" AutoGenerateColumns="False" HeadersVisibility="Column" MinColumnWidth="100" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Find}" ClipboardContentBinding="{x:Null}" Header="Find"/>
+                <DataGridTextColumn Binding="{Binding Replace}" ClipboardContentBinding="{x:Null}" Header="Replace With"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="buttonAddRow" Content="Add" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonAddRow_Click" Grid.Column="1"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Center" Height="200" Margin="0,34,0,0" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="buttonSelectFile" Content="Select File" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="75" Click="buttonSelectFile_Click"/>
+        <Button x:Name="buttonReplace" Grid.ColumnSpan="2" Content="Replace" HorizontalAlignment="Left" Margin="222,269,0,0" VerticalAlignment="Top" Width="75" Click="buttonReplace_Click"/>
     </Grid>
 </Window>
